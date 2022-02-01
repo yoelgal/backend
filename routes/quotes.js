@@ -14,12 +14,12 @@ router.get('/',
         const ibraRes = await needle(`http://www.zlatanjokes.site/joke`)
         const ibraData = ibraRes.body
         if (ibraRes.statusCode !== 200) throw new Error(`Current: ${ibraData.message} (${ibraData.status})`);
-
+/*
         //INSPIRATIONAL
         const quoteRes = await needle(`https://zenquotes.io/api/today`)
         const quoteData = JSON.parse(quoteRes.body)
         if (quoteRes.statusCode !== 200) throw new Error(`Current: ${quoteData.message} (${quoteData.status})`);
-
+*/
         //CS
         // const csRes = await needle(`http://quotes.stormconsultancy.co.uk/quotes/random.json`)
         // const csData = csRes.body
@@ -39,10 +39,10 @@ router.get('/',
         res.json({
             chuck: chuckData.value.replace('/"', '"'),
             ibra: ibraData.joke,
-            quote: {
+           /* quote: {
                 text: quoteData[0].q.trim(),
                 author: quoteData[0].a
-            },
+            },*/
             cs: {
                 text: csQoutes.quotes[quoteNum].text,
                 author: csQoutes.quotes[quoteNum].author

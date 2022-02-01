@@ -27,6 +27,42 @@ async function findUriKeyword() {
     return apiUrlName;
 }
 
-// console.log("Two parrots are sitting on a perch. One turns to the other and asks, \"do you smell fish?\"".replaceAll(","))
+const am = new dayjs('2022-01-28T09:00:00.121Z').format('HHmm')
+const now = new dayjs('2022-01-28T13:23:54.121Z').format('HHmm')
+
+
+const findPeriod = (time) => {
+    if (time >= "0900" && time < "0940") {
+        return {period: '1', lower: '09:00', upper: '09:40'}
+    } else if (time >= "0940" && time < "1020") {
+        return {period: '2', lower: '09:40', upper: '10:20'}
+    } else if (time >= "1020" && time < "1050") {
+        return {period: 'Break', lower: '10:20', upper: '10:50'}
+    } else if (time >= "1050" && time < "1130") {
+        return {period: '3', lower: '10:50', upper: '11:30'}
+    } else if (time >= "1130" && time < "1210") {
+        return {period: '4', lower: '11:30', upper: '12:10'}
+    } else if (time >= "1210" && time < "1250") {
+        return {period: '5', lower: '12:10', upper: '12:50'}
+    } else if (time >= "1250" && time < "1340") {
+        return {period: 'Lunch', lower: '12:50', upper: '13:40'}
+    }else if (time >= "1340" && time < "1420") {
+        return {period: '6', lower: '13:40', upper: '14:20'}
+    }else if (time >= "1420" && time < "1500") {
+        return {period: '7', lower: '14:20', upper: '15:00'}
+    }else if (time >= "1500" && time < "1505") {
+        return {period: 'Gap', lower: '15:00', upper: '15:05'}
+    }else if (time >= "1505" && time < "1545") {
+        return {period: '8', lower: '15:05', upper: '15:45'}
+    }else if (time >= "1545" && time < "1550") {
+        return {period: 'Gap', lower: '15:45', upper: '15:50'}
+    }else if (time >= "1550" && time < "1630") {
+        return {period: '9', lower: '15:50', upper: '16:30'}
+    } else {
+        return {period: 'N/a', lower: '16:30', upper: '09:00'}
+    }
+}
+
+
 
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword}
