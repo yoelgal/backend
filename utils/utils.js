@@ -30,7 +30,7 @@ async function findUriKeyword() {
 const am = new dayjs('2022-01-28T09:00:00.121Z').format('HHmm')
 const now = new dayjs('2022-01-28T13:23:54.121Z').format('HHmm')
 
-
+/*
 const findPeriod = (time) => {
     if (time >= "0900" && time < "0940") {
         return {period: '1', lower: '09:00', upper: '09:40'}
@@ -62,7 +62,8 @@ const findPeriod = (time) => {
         return {period: 'N/a', lower: '16:30', upper: '09:00'}
     }
 }
+*/
 
-
+console.log('willymonger')
 
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword}
