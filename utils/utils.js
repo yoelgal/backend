@@ -64,6 +64,6 @@ const findPeriod = (time) => {
 }
 */
 
-// console.log('willymonger')
+console.log('willymonger')
 
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword}
