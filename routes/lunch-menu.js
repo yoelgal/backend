@@ -8,7 +8,7 @@ router.get('/', async (req,res)=>{
         const curWeek = new dayjs().week()
     }
     res.json({
-        week:1,
+        week:3,
         lunchMenu
     })
 })
