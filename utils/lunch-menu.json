@@ -17,15 +17,15 @@
       },
       {
         "soup": "Roasted Tomato and Red Pepper",
-        "main": "Lemon, Thyme & Terragon Chicken Drumsticks",
+        "main": "Chicken Drumsticks",
         "veg": "Aubergine Halves",
         "light": "Kale, Basil & Parsley Pesto Pasta",
         "dessert": "Pineapple Upside Down Cake"
       },
       {
         "soup": "Potato, Pea and Watercress Soup",
-        "main": "Cajun Chicken Fajitas Bean & Coriander Rice",
-        "veg": "Rigatoni Pasta bound in a Roasted Tomato Sauce",
+        "main": "Cajun Chicken Fajitas",
+        "veg": "Rigatoni Pasta with Tomato Sauce",
         "light": "Salami & Emmental Toasts",
         "dessert": "White Chocolate Mousse"
       },
@@ -69,7 +69,7 @@
       {
         "soup": "Curried Potato",
         "main": "Pork Hotdogs",
-        "veg": "Roasted Tomato, Pepper & Olive Whole-Wheat Pasta",
+        "veg": "Roasted Tomato, Pepper & Olive Pasta",
         "light": "Blackened Cajun Salmon",
         "dessert": "Chocolate & Salted Caramel Mousse Cups"
       },
@@ -112,7 +112,7 @@
       },
       {
         "soup": "Tomato & Roasted Garlic",
-        "main": "Hickory Smoked BBQ Chicken Drumsticks",
+        "main": "BBQ Chicken Drumsticks",
         "veg": "Spinach, Chickpea & Cauliflower Rogan Josh",
         "light": "Pesto Pasta",
         "dessert": "Rocky Road"

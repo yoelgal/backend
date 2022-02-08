@@ -16,7 +16,6 @@ const busDateFormat = (dt) => {
 const arrivalCountdown = (data) => {
     const newData = data.journeys.filter(e => e.legs[0].instruction.detailed.slice(0, 3) === '240').map(e => (dayjs().diff(e.startDateTime, 'minute') * -1)).filter(e => e >= 0).map(e => e < 1 ? 'Due' : e)
     return newData
-
 }
 
 // console.log(arrivalCountdown((dataSample)))
@@ -64,6 +63,6 @@ const findPeriod = (time) => {
 }
 */
 
-console.log('willymonger')
+
 
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword}
