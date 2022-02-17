@@ -20,6 +20,10 @@ const quotesRouter = require('./routes/quotes')
 const lunchMenuRouter = require('./routes/lunch-menu')
 const dadJokeRouter = require('./routes/dad-joke')
 const newsRouter = require('./routes/news')
+const newWeatherRouter = require('./routes/weather2')
+const fixtureRouter = require('./routes/fixtures')
+const scoresRouter = require('./routes/scores')
+const datesRouter = require('./routes/key-dates')
 
 
 // view engine setup
@@ -39,6 +43,10 @@ app.use('/quotes', quotesRouter)
 app.use('/lunch-menu', lunchMenuRouter)
 app.use('/dad-joke', dadJokeRouter)
 app.use('/news', newsRouter)
+app.use('/weather2', newWeatherRouter)
+app.use('/fixtures', fixtureRouter)
+app.use('/scores', scoresRouter)
+app.use('/dates', datesRouter)
 
 
 // catch 404 and forward to error handler
