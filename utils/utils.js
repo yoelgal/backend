@@ -67,5 +67,5 @@ const findPeriod = (time) => {
 // console.log(new Date(date * 1000 ).getDay())
 
 // console.log("Boys-U12A".slice(-3,-1))
-
+// console.log(dayjs().hour())
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword}
