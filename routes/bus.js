@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const needle = require('needle')
-const dayjs = require('dayjs');
 const {busDateFormat, arrivalCountdown, findUriKeyword} = require('../utils/utils')
 
 

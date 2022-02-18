@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const indexRouter = require('./routes/index');
-const weatherRouter = require('./routes/weather');
 const busRouter = require('./routes/bus')
 const quotesRouter = require('./routes/quotes')
 const lunchMenuRouter = require('./routes/lunch-menu')
@@ -37,7 +36,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/weather', weatherRouter);
 app.use('/bus', busRouter)
 app.use('/quotes', quotesRouter)
 app.use('/lunch-menu', lunchMenuRouter)
