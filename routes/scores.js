@@ -6,7 +6,7 @@ router.get('/', async (req,res)=>{
     const resD = await needle('https://www.schoolssports.com/school/xml/results.ashx?ID=182&key=26848B8E-91E4-4507-B298-0051450C69ED')
     const data = resD.body
     const today = new Date();
-    const lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 28);
+    const lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
     const scoresList = data.children.map(d=>({
         sport: d.children[1].value,
