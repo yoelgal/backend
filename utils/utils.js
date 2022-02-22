@@ -23,11 +23,13 @@ const arrivalCountdown = (data) => {
 async function findUriKeyword() {
     const data = await needle(`https://tfl.gov.uk/plan-a-journey/results?InputFrom=Mill+Hill+Village+%2F+Hammers+Lane&FromId=1009902&InputTo=Edgware+Underground+Station&ToId=1000070api`)
     const apiUrlName = /tfl\.apiUrl = \"https:\/\/api-(.*)\.tfl\.gov\.uk\/\"/.exec(data.body)[1];
+    // console.log(data.body)
     return apiUrlName;
+
 }
 
-const am = new dayjs('2022-01-28T09:00:00.121Z').format('HHmm')
-const now = new dayjs('2022-01-28T13:23:54.121Z').format('HHmm')
+// const am = new dayjs('2022-01-28T09:00:00.121Z').format('HHmm')
+// const now = new dayjs('2022-01-28T13:23:54.121Z').format('HHmm')
 
 /*
 const findPeriod = (time) => {
@@ -68,4 +70,7 @@ const findPeriod = (time) => {
 
 // console.log("Boys-U12A".slice(-3,-1))
 // console.log(dayjs().hour())
+
+
+
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword}
