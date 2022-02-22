@@ -33,7 +33,7 @@ router.get('/', async (req,res)=>{
             desc: d.weather[0].description,
             icon: `http://openweathermap.org/img/wn/${d.weather[0].icon}@2x.png`
 
-        }))
+        })).filter(d=>d.time > dayjs().hour())
     }
     res.json(finalData)
 
