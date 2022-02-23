@@ -14,7 +14,7 @@ const busDateFormat = (dt) => {
 // const now = dayjs('2021-12-23T11:20:10.009');
 
 const arrivalCountdown = (data) => {
-    const newData = data.journeys.filter(e => e.legs[0].instruction.detailed.slice(0, 3) === '240').map(e => (dayjs().diff(e.startDateTime, 'minute') * -1)).filter(e => e >= 0).map(e => e < 1 ? 'Due' : e)
+    const newData = data.journeys.filter(e => e.legs[0].instruction.detailed.slice(0, 3) === '240').map(e => (dayjs().diff(e.startDateTime, 'minute') * -1)).filter(e => e >= 0).map(e => e < 1 ? '1' : e)
     return newData
 }
 
