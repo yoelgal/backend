@@ -15,6 +15,7 @@ app.use(cors());
 
 const indexRouter = require('./routes/index');
 const busRouter = require('./routes/bus')
+const newBus = require('./routes/new-bus')
 const quotesRouter = require('./routes/quotes')
 const lunchMenuRouter = require('./routes/lunch-menu')
 const dadJokeRouter = require('./routes/dad-joke')
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/bus', busRouter)
+app.use('/new-bus', newBus);
 app.use('/quotes', quotesRouter)
 app.use('/lunch-menu', lunchMenuRouter)
 app.use('/dad-joke', dadJokeRouter)
@@ -47,6 +49,7 @@ app.use('/weather3', weather3)
 app.use('/fixtures', fixtureRouter)
 app.use('/scores', scoresRouter)
 app.use('/dates', datesRouter)
+
 
 
 // catch 404 and forward to error handler

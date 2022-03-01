@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@datafire/tfl_gov_uk": "^6.0.0",
     "body-parser": "^1.19.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
