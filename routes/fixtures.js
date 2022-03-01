@@ -3,7 +3,7 @@ const router = express.Router();
 const needle = require('needle')
 const dayjs = require('dayjs');
 
-const {ageMap} = require('../utils/utils')
+const {ageMap, sportMap} = require('../utils/utils')
 
 
 router.get('/', async (req, res) => {
@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 
     let fixtureList = data.children.map(d => ({
         sport: d.children[1].value,
+        emoji: sportMap.get(d.children[1].value),
         date: d.children[2].value,
         team: d.children[6].value.replaceAll("&amp;", "&"),
         opponent: d.children[7].value.replaceAll("&amp;", "&").replaceAll("University College School (UCS)", "UCS"),

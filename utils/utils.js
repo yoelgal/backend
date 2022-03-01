@@ -21,6 +21,17 @@ ageMap.set('4th', 18)
 ageMap.set('5th', 18)
 ageMap.set('6th', 18)
 
+const sportMap = new Map()
+sportMap.set('Football', '⚽️')
+sportMap.set('Rugby', '🏉️')
+sportMap.set('Rugby Sevens', '🏉️')
+sportMap.set('Basketball', '🏀')
+sportMap.set('Fives', '🤾')
+sportMap.set('Netball', '🏐')
+sportMap.set('Hockey', '🏑')
+sportMap.set('Tennis', '🎾')
+
+
 
 const arrivalCountdown = (data) => {
     const newData = data.journeys.filter(e => e.legs[0].instruction.detailed.slice(0, 3) === '240').map(e => (dayjs().diff(e.startDateTime, 'minute') * -1)).filter(e => e >= 0).map(e => e < 1 ? '1' : e)
@@ -82,4 +93,4 @@ const findPeriod = (time) => {
 
 
 
-module.exports = {busDateFormat, arrivalCountdown, findUriKeyword, ageMap}
+module.exports = {busDateFormat, arrivalCountdown, findUriKeyword, ageMap, sportMap}
