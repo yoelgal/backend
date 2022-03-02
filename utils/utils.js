@@ -26,7 +26,7 @@ sportMap.set('Football', '⚽️')
 sportMap.set('Rugby', '🏉️')
 sportMap.set('Rugby Sevens', '🏉️')
 sportMap.set('Basketball', '🏀')
-sportMap.set('Fives', '🤾')
+sportMap.set('Fives', '🧤')
 sportMap.set('Netball', '🏐')
 sportMap.set('Hockey', '🏑')
 sportMap.set('Tennis', '🎾')
@@ -90,7 +90,5 @@ const findPeriod = (time) => {
 
 // console.log("Boys-U12A".slice(-3,-1))
 // console.log(dayjs().hour())
-
-
 
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword, ageMap, sportMap}
