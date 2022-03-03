@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const needle = require('needle')
-const csQoutes = require('../utils/csQuotes.json')
+const csQuotes = require('../utils/csQuotes.json')
 
 router.get('/',
     async (req, res) => {
@@ -44,11 +44,12 @@ router.get('/',
                 author: quoteData[0].a
             },*/
             cs: {
-                text: csQoutes.quotes[quoteNum].text,
-                author: csQoutes.quotes[quoteNum].author
+                text: csQuotes.quotes[quoteNum].text,
             },
             kanye: `${kanyeQuote} - Kanye West`,
-            randFact: factData
+            randFact: factData,
+
+
         })
 
     })
