@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
         dateFormat: `${days[new Date(d.children[13].value).getDay()]} ${new Date(d.children[13].value).getDate()} ${months[new Date(d.children[13].value).getMonth()]}`,
         oth: d.children[6].value.slice(0, 3),
         teamNum: null
-    })).filter(d => d.fullDate > today && d.fullDate < nextWeek)
+    })).filter(d => d.fullDate > today && d.fullDate < nextWeek && !d.opponent.includes('Cancelled'))
 
     for (let e of fixtureList) {
         if (ageMap.get(e.oth)) {
