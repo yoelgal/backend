@@ -7,6 +7,7 @@ const {ageMap} = require('../utils/utils')
 router.get('/', async (req, res) => {
     const resD = await needle('https://www.schoolssports.com/school/xml/results.ashx?ID=182&key=26848B8E-91E4-4507-B298-0051450C69ED')
     const data = resD.body
+    if (resD.statusCode !== 200) throw new Error(`Current: ${data.message} (${data.status})`);
     const today = new Date();
     let lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 

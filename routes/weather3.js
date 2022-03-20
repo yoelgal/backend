@@ -9,10 +9,12 @@ router.get('/', async (req,res)=>{
     //current
     const resCur = await needle(`api.openweathermap.org/data/2.5/weather?lat=51.61906972255602&lon=-0.23053750094911576&units=metric&appid=${key}`)
     const curData = resCur.body
+    if (resCur.statusCode !== 200) throw new Error(`Current: ${curData.message} (${curData.status})`);
 
     //hourly
     const resFore = await needle(`api.openweathermap.org/data/2.5/forecast?lat=51.61906972255602&lon=-0.23053750094911576&units=metric&appid=${key}`)
     const foreData = resFore.body
+    if (resFore.statusCode !== 200) throw new Error(`Current: ${foreData.message} (${foreData.status})`);
 
     const {sunrise,sunset} = curData.sys
     const finalData = {

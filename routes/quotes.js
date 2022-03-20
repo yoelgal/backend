@@ -24,7 +24,7 @@ router.get('/',
         // const csRes = await needle(`http://quotes.stormconsultancy.co.uk/quotes/random.json`)
         // const csData = csRes.body
         // if (csRes.statusCode !== 200) throw new Error(`Current: ${csData.message} (${csData.status})`);
-        const quoteNum = Math.floor(Math.random() * 73)
+        const quoteNum = Math.floor(Math.random() * 87)
         //
         // //KANYE REST
         // const kanyeRes = await needle(`https://api.kanye.rest`)

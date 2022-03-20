@@ -11,6 +11,7 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 router.get('/', async (req, res) => {
     const resD = await needle('https://www.schoolssports.com/school/xml/fixturecalendar.ashx?ID=182&key=26848B8E-91E4-4507-B298-0051450C69ED')
     const data = resD.body
+    if (resD.statusCode !== 200) throw new Error(`Current: ${data.message} (${data.status})`);
     const today = new Date();
     const nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
 
