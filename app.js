@@ -5,13 +5,24 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const db = require('./utils/mongo')
 
 const app = express();
 
+//mongo
+db.on('error', (error) => console.error(error))
+db.once('open', () => console.log('Connected to Database'))
+
+// const Articles = require('../utils/models/newsSchema')
+const newsLoad = require('./newsLoader')
+newsLoad()
+setInterval(newsLoad, 3600000)
 
 // middle ware
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.json())
 
 const indexRouter = require('./routes/index');
 const busRouter = require('./routes/bus')
@@ -25,7 +36,7 @@ const weather3 = require('./routes/weather3')
 const fixtureRouter = require('./routes/fixtures')
 const scoresRouter = require('./routes/scores')
 const datesRouter = require('./routes/key-dates')
-
+const newsDB = require('./routes/newsDB')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,6 +60,7 @@ app.use('/weather3', weather3)
 app.use('/fixtures', fixtureRouter)
 app.use('/scores', scoresRouter)
 app.use('/dates', datesRouter)
+app.use('/news-db', newsDB)
 
 
 

@@ -1,18 +1,10 @@
-const mongoPass = 'rSlOGZYMuF1GdNmu';
+const mongoose = require('mongoose')
 
-const {MongoClient} = require('mongodb');
-const uri = `mongodb+srv://yoelGal:${mongoPass}@vueexpress.fjuo4.mongodb.net/vueExpress?retryWrites=true&w=majority`;
-// const uri = `mongodb://localhost:27017`;
-const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
-const db = client.db('vueExpress');
-let connection;
+mongoose.connect("mongodb+srv://user1:1qazxcvbnmko0@cluster0.wf9u7.mongodb.net/news?retryWrites=true&w=majority", { useNewUrlParser: true })
+const db = mongoose.connection
 
-const connect = async () => {
-    if (connection) return connection;
-    connection = await client.connect();
-    return connection;
-}
 
-module.exports = {connect, mongoDb: db}
+
+module.exports = db
 
 
