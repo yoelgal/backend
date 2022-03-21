@@ -1,9 +1,8 @@
 const needle = require("needle");
-const Article = require('./utils/models/newsSchema')
-const mongoose = require('mongoose')
-const db = require('./utils/mongo')
+const Article = require('./models/newsSchema')
+const db = require('./mongo')
 
-async function uploadNews(req, res) {
+async function uploadNews() {
     const newsRes = await needle(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=4db889f4ad6242d5832b52a3c5a53f15`)
     const newsBody = newsRes.body
     if (newsRes.statusCode !== 200) throw new Error(`Current: ${newsBody.message} (${newsBody.status})`);

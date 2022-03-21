@@ -7,6 +7,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const db = require('./utils/mongo')
+const CronJob = require('cron').CronJob;
 
 const app = express();
 
@@ -14,10 +15,17 @@ const app = express();
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
 
-// const Articles = require('../utils/models/newsSchema')
-const newsLoad = require('./newsLoader')
+//news loading
+const newsLoad = require('./utils/newsLoader')
 newsLoad()
 setInterval(newsLoad, 3600000)
+
+//quote cron-job
+const quoteLoad = require('./utils/quoteLoader')
+let quoteJob = new CronJob('* * 0 * * *', function() {
+  quoteLoad()
+}, null, true, 'Europe/London');
+quoteJob.start()
 
 // middle ware
 app.use(bodyParser.json());
