@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const db = require('./utils/mongo')
 const CronJob = require('cron').CronJob;
+const needle = require('needle')
 
 const app = express();
 
@@ -19,6 +20,13 @@ db.once('open', () => console.log('Connected to Database'))
 const newsLoad = require('./utils/newsLoader')
 newsLoad()
 setInterval(newsLoad, 3600000)
+
+//pinger
+setInterval(async function(req,res){
+  const pingRes = await needle('https://pure-plateau-38466.herokuapp.com/ping')
+  const pingBody = pingRes.body
+  if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
+},300000)
 
 //quote cron-job
 const quoteLoad = require('./utils/quoteLoader')
