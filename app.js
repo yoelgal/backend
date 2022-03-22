@@ -45,6 +45,7 @@ const fixtureRouter = require('./routes/fixtures')
 const scoresRouter = require('./routes/scores')
 const datesRouter = require('./routes/key-dates')
 const newsDB = require('./routes/newsDB')
+const pingRouter = require('./routes/ping')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -69,6 +70,7 @@ app.use('/fixtures', fixtureRouter)
 app.use('/scores', scoresRouter)
 app.use('/dates', datesRouter)
 app.use('/news-db', newsDB)
+app.use('/ping', pingRouter)
 
 
 
