@@ -30,7 +30,7 @@ setInterval(async function(req,res){
 
 //quote cron-job
 const quoteLoad = require('./utils/quoteLoader')
-let quoteJob = new CronJob('* * 0 * * *', function() {
+let quoteJob = new CronJob('0 0 0 * * *', function() {
   quoteLoad()
 }, null, true, 'Europe/London');
 quoteJob.start()
