@@ -2,6 +2,8 @@ const dayjs = require('dayjs');
 const needle = require("needle");
 const CronJob = require('cron').CronJob;
 
+// const hour = (new Date()).getHours()
+// console.log(hour)
 
 const busDateFormat = (dt) => {
     const d = dayjs(dt).format('YYYYMMDD');

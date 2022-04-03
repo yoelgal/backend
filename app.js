@@ -22,16 +22,19 @@ newsLoad()
 setInterval(newsLoad, 3600000)
 
 //pinger
-setInterval(async function(req,res){
-  const pingRes = await needle('https://fathomless-crag-41517.herokuapp.com/ping')
-  const pingBody = pingRes.body
-  if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
-},300000)
+setInterval(async function (req, res) {
+    const hour = (new Date()).getHours()
+    if (hour >= 1 && hour <= 7) {
+        const pingRes = await needle('https://fathomless-crag-41517.herokuapp.com/ping')
+        const pingBody = pingRes.body
+        if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
+    }
+}, 300000)
 
 //quote cron-job
 const quoteLoad = require('./utils/quoteLoader')
-let quoteJob = new CronJob('0 0 0 * * *', function() {
-  quoteLoad()
+let quoteJob = new CronJob('0 0 0 * * *', function () {
+    quoteLoad()
 }, null, true, 'Europe/London');
 quoteJob.start()
 // TESTING setInterval(quoteLoad,10000)
@@ -62,7 +65,7 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -82,21 +85,20 @@ app.use('/news-db', newsDB)
 app.use('/ping', pingRouter)
 
 
-
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(function (req, res, next) {
+    next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
