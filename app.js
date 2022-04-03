@@ -23,7 +23,7 @@ setInterval(newsLoad, 3600000)
 
 //pinger
 setInterval(async function(req,res){
-  const pingRes = await needle('https://pure-plateau-38466.herokuapp.com/ping')
+  const pingRes = await needle('https://fathomless-crag-41517.herokuapp.com/ping')
   const pingBody = pingRes.body
   if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
 },300000)
