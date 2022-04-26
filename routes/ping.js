@@ -4,7 +4,7 @@ const needle = require('needle')
 
 router.get('/', async (req,res)=>{
     console.log('Pinged')
-    res.json('ping')
+    res.json('ping main')
 })
 
 module.exports = router
