@@ -38,6 +38,7 @@ let quoteJob = new CronJob('0 0 23 * * *', function () {
 }, null, true, 'Europe/London');
 quoteJob.start()
 // TESTING setInterval(quoteLoad,10000)
+//hello
 
 // middle ware
 app.use(bodyParser.json());
