@@ -28,10 +28,12 @@ setInterval(async function (req, res) {
         const pingRes = await needle('https://mhs-pinger-1.herokuapp.com/ping')
         const pingBody = pingRes.body
         if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
+        console.log('Pinged 1')
     } else if (hour >= 17 || hour <= 1) {
         const pingRes = await needle('https://mhs-pinger-2.herokuapp.com/ping')
         const pingBody = pingRes.body
         if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
+        console.log('Pinged 2')
     }
 }, 60000)
 
@@ -47,6 +49,7 @@ let activatePinger2 = new CronJob('0 0 16 * * *', async function (){
     const pingRes = await needle('https://mhs-pinger-2.herokuapp.com/ping')
     const pingBody = pingRes.body
     if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
+    console.log('Activated 2 at 16:00')
 })
 activatePinger2.start()
 
