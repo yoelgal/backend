@@ -24,7 +24,7 @@ setInterval(newsLoad, 3600000)
 //pinger
 setInterval(async function (req, res) {
     const hour = (new Date()).getHours()
-    if (hour >= 8 && hour <= 17) {
+    if (hour >= 8 && hour < 17) {
         const pingRes = await needle('https://mhs-pinger-1.herokuapp.com/ping')
         const pingBody = pingRes.body
         if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
