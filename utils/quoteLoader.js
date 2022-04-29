@@ -11,7 +11,7 @@ async function delay(){
 }
 
 async function uploadQuote(){
-    const quoteNum = Math.floor(Math.random() * 87)
+    const quoteNum = Math.floor(Math.random() * 83)
     const dailyQuote = new Quote({
         text: quotes.quotes[quoteNum].text
     })

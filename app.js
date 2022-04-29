@@ -28,12 +28,12 @@ setInterval(async function (req, res) {
         const pingRes = await needle('https://mhs-pinger-1.herokuapp.com/ping')
         const pingBody = pingRes.body
         if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
-        console.log('Pinged 1')
+        console.log('Pinged 1 at hour: '+ hour)
     } else if (hour >= 17 || hour <= 1) {
         const pingRes = await needle('https://mhs-pinger-2.herokuapp.com/ping')
         const pingBody = pingRes.body
         if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
-        console.log('Pinged 2')
+        console.log('Pinged 2 at hour: ' + hour)
     }
 }, 60000)
 
