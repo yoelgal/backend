@@ -95,7 +95,10 @@ const findPeriod = (time) => {
 // console.log("Boys-U12A".slice(-3,-1))
 // console.log(dayjs().hour())
 
-const now = (new Date('2022-04-26T00:00:00.320Z')).getHours()
-console.log(now)
+// const now = (new Date('2022-04-26T00:00:00.320Z')).getHours()
+// console.log(now)
+
+// console.log(dayjs().hour())
+// console.log(parseInt('09'))
 
 module.exports = {busDateFormat, arrivalCountdown, findUriKeyword, ageMap, sportMap}
