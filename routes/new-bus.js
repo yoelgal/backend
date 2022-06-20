@@ -1,18 +1,34 @@
-// REDUNDANT ROUTE
+// NEW BUS - EXPERIMENTAL
 
 const express = require('express');
 const router = express.Router();
 const needle = require('needle')
 const dayjs = require('dayjs');
-let tfl_gov_uk = require('@datafire/tfl_gov_uk').create({
-    apiKey: "14f7f5ff5d64df2e88701cef2049c804",
-    appId: "8268063a"
-});
+
+const countDown = (ts)=> {
+    const now = dayjs()
+    const bus = dayjs(parseInt(ts))
+    const time = Math.round((bus - now) / 60000)
+    return time
+}
 
 router.get('/', async (req,res) =>{
-    tfl_gov_uk.Line_Route({}).then(data => {
-        res.json(data)
-    });
+    const busRes = await needle('http://countdown.api.tfl.gov.uk/interfaces/ura/instant_V1')
+    const busArr = busRes.body.split('[')
+    if (busRes.statusCode !== 200) throw new Error(`${busArr.message} (${busArr.statusCode})`)
+
+
+
+    const times = {
+        edg: busArr.filter(e=>e.includes("Mill Hill Village / Hammers Lane")).map(e=>e.split(',')).map(e=>countDown(e[3].slice(0,-3))).sort(function(a, b){return a-b}).map(e=>e>0?`${e}`:'Due'),
+        gol: busArr.filter(e=>e.includes("Mill Hill Village / The Ridgeway")).map(e=>e.split(',')).map(e=>countDown(e[3].slice(0,-3))).sort(function(a, b){return a-b}).map(e=>e>0?`${e}`:'Due')
+    }
+
+
+
+    res.json(times)
+
+
 
 })
 
