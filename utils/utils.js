@@ -36,6 +36,9 @@ sportMap.set('Fives', '🧤')
 sportMap.set('Netball', '🏐')
 sportMap.set('Hockey', '🏑')
 sportMap.set('Tennis', '🎾')
+sportMap.set('Cricket', '🏏')
+sportMap.set('Golf', '🏌️')
+sportMap.set('Touch', '🏉')
 
 
 
