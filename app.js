@@ -12,7 +12,6 @@ const needle = require('needle')
 
 const app = express();
 
-console.log('Testing')
 
 //mongo
 db.on('error', (error) => console.error(error))
@@ -23,21 +22,7 @@ const newsLoad = require('./utils/newsLoader')
 newsLoad()
 setInterval(newsLoad, 3600000)
 
-// //pinger
-// setInterval(async function (req, res) {
-//     const hour = (new Date()).getHours()
-//     if (hour >= 8 && hour < 17) {
-//         const pingRes = await needle('https://mhs-pinger-1.herokuapp.com/ping')
-//         const pingBody = pingRes.body
-//         if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
-//         console.log('Pinged 1 at hour: ' + hour)
-//     } else if (hour >= 17 || hour <= 1) {
-//         const pingRes = await needle('https://mhs-pinger-2.herokuapp.com/ping')
-//         const pingBody = pingRes.body
-//         if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
-//         console.log('Pinged 2 at hour: ' + hour)
-//     }
-// }, 60000)
+
 
 //quote cron-job at 11
 const quoteLoad = require('./utils/quoteLoader')
@@ -46,14 +31,6 @@ let quoteJob = new CronJob('0 0 23 * * *', function () {
 }, null, true, 'Europe/London');
 quoteJob.start()
 
-// // activate pinger 2 at 16:00
-// let activatePinger2 = new CronJob('0 0 16 * * *', async function () {
-//     const pingRes = await needle('https://mhs-pinger-2.herokuapp.com/ping')
-//     const pingBody = pingRes.body
-//     if (pingRes.statusCode !== 200) throw new Error(`Current: ${pingBody.message} (${pingBody.status})`);
-//     console.log('Activated 2 at 16:00')
-// })
-// activatePinger2.start()
 
 // middle ware
 app.use(bodyParser.json());

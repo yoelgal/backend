@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const now = new Date();
     const {d: uriDate, t: uriTime} = busDateFormat(now);
     const keyWord = await findUriKeyword()
-    // console.log(keyWord)
+    console.log(keyWord)
     // console.log(uriDate)
     // console.log(uriTime)
 

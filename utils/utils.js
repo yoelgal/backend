@@ -2,6 +2,7 @@ const dayjs = require('dayjs');
 const needle = require("needle");
 const CronJob = require('cron').CronJob;
 
+
 // const hour = (new Date()).getHours()
 // console.log(hour)
 
@@ -15,7 +16,8 @@ const busDateFormat = (dt) => {
 // const dataSample = require('./data.json');
 //
 //
-// const now = dayjs('2021-12-23T11:20:10.009');
+
+
 
 const ageMap = new Map()
 ageMap.set('1st', 18)
