@@ -63,8 +63,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/bus', busRouter)
-app.use('/new-bus', newBus);
+app.use('/bus-old', busRouter)
+app.use('/bus', newBus);
 app.use('/quotes', quotesRouter)
 app.use('/lunch-menu', lunchMenuRouter)
 app.use('/dad-joke', dadJokeRouter)
